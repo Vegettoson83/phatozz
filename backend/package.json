@@ -1,0 +1,17 @@
+{
+  "name": "phantom-backend",
+  "version": "1.1.0",
+  "description": "Phantom Gateway Backend Server",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js",
+    "debug": "NODE_ENV=debug node index.js"
+  },
+  "dependencies": {
+    "socks-proxy-agent": "^8.0.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

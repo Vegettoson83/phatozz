@@ -1,0 +1,34 @@
+name = "phantom-gateway-worker" # Name of your worker
+main = "worker.js"              # Entry point
+compatibility_date = "2024-05-20" # Use a recent compatibility date
+
+# Enables a subset of Node.js APIs. Useful if any part of your code or dependencies
+# might rely on them. The provided worker.js aims for Web Standard APIs.
+compatibility_flags = ["nodejs_compat"]
+
+# Secrets are set by the deploy-ultimate.sh script using 'wrangler secret put':
+# - AUTH_SECRET
+# - TUNNEL_HOST
+# - TUNNEL_PORT
+
+# D1 Database binding
+[[d1_databases]]
+binding = "DB" # How you access it in the worker code (e.g., env.DB)
+database_name = "phantom-db" # Name of the D1 database
+# database_id is populated by the deploy-ultimate.sh script.
+# Provide a placeholder or the actual ID if deploying manually.
+database_id = "YOUR_D1_DATABASE_ID_PLACEHOLDER"
+
+# KV Namespace binding
+[[kv_namespaces]]
+binding = "PHANTOM_STREAMS" # How you access it in the worker code (e.g., env.PHANTOM_STREAMS)
+# id (production ID) is populated by the deploy-ultimate.sh script.
+# Provide a placeholder or the actual ID if deploying manually.
+id = "YOUR_KV_NAMESPACE_ID_PLACEHOLDER"
+# preview_id is used for `wrangler dev`.
+# Can be the same as 'id' or a different one for local development.
+# The deploy script primarily manages the production 'id'.
+preview_id = "YOUR_KV_NAMESPACE_PREVIEW_ID_PLACEHOLDER" # Often same as 'id'
+
+# Ensure your Cloudflare account plan supports Workers, D1, KV, and Cloudflare Tunnel.
+# The free tier typically provides sufficient resources for this gateway's operation.

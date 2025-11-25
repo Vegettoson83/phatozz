@@ -1,0 +1,18 @@
+{
+  "name": "phantom-client",
+  "version": "2.1.0",
+  "description": "Phantom Gateway Client",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js",
+    "debug": "NODE_ENV=debug node index.js"
+  },
+  "dependencies": {
+    "socks-proxy-agent": "^8.0.2",
+    "ws": "^8.16.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
