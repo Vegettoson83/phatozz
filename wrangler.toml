@@ -1,4 +1,4 @@
-name = "shadow"
+name = "phamtom"
 main = "worker.js"
 type = "javascript"
 
